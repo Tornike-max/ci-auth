@@ -3,11 +3,25 @@
 
 <?= $this->section('authContent') ?>
 
+<?php
+
+if (!empty(session()->getFlashdata('success'))) {
+?>
+  <div class="alert alert-success"><?= session()->getFlashdata('success'); ?></div>
+<?php
+} else if (!empty(session()->getFlashdata('error'))) {
+?>
+  <div class="alert alert-danger"><?= session()->getFlashdata('error'); ?></div>
+<?php
+}
+
+?>
+
 <div class="card">
   <h4 class="text-center">Sign In</h4>
   <hr />
 
-  <form action="#" class="form" method="POST">
+  <form action="<?= base_url('loginUser') ?>" class="form" method="POST">
     <?= csrf_field() ?>
     <?php if (isset($validation)) : ?>
       <div class="alert alert-danger"><?= $validation->listErrors() ?></div>
