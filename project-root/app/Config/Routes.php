@@ -12,3 +12,7 @@ $routes->get('/register', 'AuthController::register');
 
 $routes->post('/registerUser', 'AuthController::registerUser');
 $routes->post('/loginUser', 'AuthController::loginUser');
+$routes->post('users/uploadImage', 'AuthController::uploadImage');
+
+
+$routes->get('/dashboard', 'DashboardController::index');
